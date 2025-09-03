@@ -15,7 +15,7 @@ const LogoMarquee: React.FC = () => {
                 {logos.map((tool, index) => {
                     return (
                         <div key={index} className="flex-shrink-0 mx-8 flex items-center justify-center" title={tool.name}>
-                            <img src={tool.logo} alt={`${tool.name} Logo`} className="h-8 w-auto" />
+                            <img src={tool.logo} alt={`${tool.name} Logo`} className="h-10 w-auto" />
                         </div>
                     );
                 })}

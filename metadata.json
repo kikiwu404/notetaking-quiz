@@ -1,5 +1,5 @@
 {
-  "name": "Note-Taking Tool Quiz",
-  "description": "A quiz to help you discover the perfect note-taking tool for your needs from popular options like Notion, Obsidian, Heptabase, and more.",
+  "name": "找到最適合你的筆記工具",
+  "description": "你是哪種筆記人格？透過幾個問題，找到適合你的筆記工具！",
   "requestFramePermissions": []
 }

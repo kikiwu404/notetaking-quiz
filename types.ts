@@ -42,4 +42,5 @@ export interface Tool {
   features: string[];
   logo: string;
   url: string;
+  price: string;
 }

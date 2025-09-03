@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tool, NoteTaker } from '../types';
+import { PriceIcon, CrownIcon } from './icons/AppIcon';
 
 interface ResultCardProps {
   archetype: NoteTaker;
@@ -13,30 +14,45 @@ const CheckIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     </svg>
 );
 
-const ToolDisplay: React.FC<{ tool: Tool }> = ({ tool }) => {
+const ToolDisplay: React.FC<{ tool: Tool; isPrimary?: boolean }> = ({ tool, isPrimary = false }) => {
     return (
-        <a 
-            href={tool.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl w-full block hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
-        >
-            <div className="flex items-center gap-4">
-                <div className="h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-600">
-                    <img src={tool.logo} alt={`${tool.name} Logo`} className="h-7 w-7 object-contain" />
+        <div className="flex-1 relative"> {/* Wrapper for positioning context and flex sizing */}
+            {isPrimary && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 px-3 py-1 bg-amber-400 text-white text-xs font-bold uppercase rounded-full tracking-wider flex items-center gap-1 shadow-lg">
+                    <CrownIcon className="h-4 w-4" />
+                    <span>最推薦</span>
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">{tool.name}</h2>
-            </div>
-            <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">{tool.description}</p>
-            <ul className="mt-4 space-y-2 text-sm">
-                {tool.features.slice(0, 3).map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                        <CheckIcon className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-slate-600 dark:text-slate-300">{feature}</span>
-                    </li>
-                ))}
-            </ul>
-        </a>
+            )}
+            <a 
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex flex-col h-full bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl w-full hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border-2 ${isPrimary ? 'border-amber-400 dark:border-amber-500 mt-3' : 'border-transparent'}`}
+            >
+                <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-600">
+                        <img src={tool.logo} alt={`${tool.name} Logo`} className="h-7 w-7 object-contain" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">{tool.name}</h2>
+                </div>
+                <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 flex-grow">{tool.description}</p>
+                
+                <div className="mt-4">
+                     <div className="flex items-center mb-3">
+                        <PriceIcon className="h-5 w-5 text-slate-500 dark:text-slate-400 mr-2 flex-shrink-0" />
+                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">{tool.price}</span>
+                    </div>
+                    <ul className="space-y-2 text-sm border-t border-slate-200 dark:border-slate-600/50 pt-3">
+                        {tool.features.slice(0, 3).map((feature, index) => (
+                            <li key={index} className="flex items-start">
+                                <CheckIcon className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                                <span className="text-slate-600 dark:text-slate-300">{feature}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </a>
+        </div>
     );
 };
 
@@ -56,8 +72,8 @@ const ResultCard: React.FC<ResultCardProps> = ({ archetype, tools, onRestart }) 
 
       <div className="mt-10 border-t border-slate-200 dark:border-slate-700 pt-8">
         <h2 className="text-2xl font-bold text-center text-slate-800 dark:text-slate-100 mb-6">為您推薦的工具</h2>
-        <div className="flex flex-col md:flex-row gap-6">
-            <ToolDisplay tool={tool1} />
+        <div className="flex flex-col md:flex-row gap-6 mt-8">
+            <ToolDisplay tool={tool1} isPrimary={true} />
             <ToolDisplay tool={tool2} />
         </div>
       </div>
