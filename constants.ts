@@ -29,7 +29,7 @@ export const TOOLS: Record<ToolKey, Tool> = {
   },
   [ToolKey.Heptabase]: {
     name: 'Heptabase',
-    url: 'https://join.heptabase.com?invite-acc-id=c0ea813e-a95a-4b48-8f74-de2e4649b151',
+    url: 'https://get.heptabase.com/k0oiks8880st',
     features: ['視覺化的學習與研究', '無限延伸的白板', '卡片式筆記系統', '擅長連結與梳理思路', '專為深度研究打造'],
     logo: 'https://wiki.heptabase.com/img/logo.svg',
     price: '訂閱制，$11.99/月 起',
@@ -93,39 +93,39 @@ export const NOTE_TAKER_ARCHETYPES: Record<NoteTakerType, NoteTaker> = {
 
 export const QUESTIONS: Question[] = [
   {
-    text: '你想用筆記來解決什麼核心問題？',
+    text: '你透過做筆記來解決什麼問題？',
     options: [
       {
-        text: '規劃並追蹤我生活中的各種專案和目標。',
+        text: '規劃並追蹤各種專案和目標。',
         scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
       },
       {
-        text: '連結我學到的各種知識，建立一個屬於自己的知識庫。',
+        text: '連結學到的各種知識，建立屬於自己的知識庫。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 1 },
       },
       {
-        text: '快速捕捉收據、待辦事項、網址等各種零碎資訊。',
+        text: '快速捕捉圖片、收據、待辦事項、網址等各種零碎資訊。',
         scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2, [ToolKey.AppleNotes]: 1 },
       },
       {
-        text: '只是找個簡單的地方，隨手記下臨時的想法或清單。',
+        text: '只想隨手記下臨時的想法或待辦事項。',
         scores: { [NoteTakerType.Librarian]: 1, [ToolKey.AppleNotes]: 2 },
       },
     ],
   },
   {
-    text: '規劃一趟複雜的旅行時，你會如何組織資訊？',
+    text: '規劃一趟自由旅行時，你會如何組織資訊？',
     options: [
       {
-        text: '建立一個詳細的總表，包含預算、行程、打包清單等，力求一目了然。',
+        text: '建立一個詳細的文件，包含預算、行程、打包清單等，力求資訊完整。',
         scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 3 },
       },
       {
-        text: '在白板上貼滿便利貼，代表景點和餐廳，再用線條連結出路線。',
+        text: '在白板上貼滿景點和餐廳的便利貼，隨機排列，再用線條連結出路線。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Heptabase]: 3, [ToolKey.Obsidian]: 1 },
       },
       {
-        text: '把所有訂票證明、部落格文章、地圖截圖，全部丟進一個資料夾。',
+        text: '把所有訂票證明、部落格文章、地圖，全部丟進一個資料夾。',
         scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2 },
       },
       {
@@ -135,18 +135,18 @@ export const QUESTIONS: Question[] = [
     ],
   },
     {
-    text: '學習一個複雜的新領域時，你如何做筆記？',
+    text: '學習一個複雜的新領域時，你會怎麼做筆記？',
     options: [
       {
-        text: '先建立清晰的大綱和結構，再逐步填入細節。',
+        text: '先建立清晰的大綱和結構，再慢慢寫入細節。',
         scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
       },
       {
-        text: '把所有概念攤開，畫心智圖來理解它們的關係。',
+        text: '把所有概念攤開，畫出心智圖來理解它們的關係。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Heptabase]: 3 },
       },
       {
-        text: '邊看邊記，並在筆記之間建立很多連結，形成知識網絡。',
+        text: '邊看邊記，並在筆記之間建立雙向關聯，形成知識網絡。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 3 },
       },
       {
@@ -184,11 +184,11 @@ export const QUESTIONS: Question[] = [
         scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
       },
       {
-        text: '想法很多，但它們都是孤立的，無法產生連結。',
+        text: '想法很多，但它們都是孤立的，不知道怎麼連結。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 2 },
       },
       {
-        text: '存過某個東西，但事後卻怎麼也找不到。',
+        text: '儲存過某個東西，但想找時卻怎麼也找不到。',
         scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 3 },
       },
       {
@@ -205,11 +205,11 @@ export const QUESTIONS: Question[] = [
         scores: { [ToolKey.Obsidian]: -2, [ToolKey.AppleNotes]: 2, [ToolKey.Notion]: 1 },
       },
       {
-        text: '價格太高，或訂閱制讓人卻步。',
+        text: '一定付費才能使用，讓人卻步。',
         scores: { [ToolKey.Heptabase]: -2, [ToolKey.Evernote]: -1, [ToolKey.Obsidian]: 3, [ToolKey.AppleNotes]: 2 },
       },
       {
-        text: '在手機上反應太慢，無法隨時捕捉靈感。',
+        text: '沒有支援行動裝置，無法隨時捕捉靈感。',
         scores: { [ToolKey.AppleNotes]: 3, [ToolKey.Notion]: -1 },
       },
       {
@@ -222,7 +222,7 @@ export const QUESTIONS: Question[] = [
     text: '除了打字，你最需要什麼功能？',
     options: [
       {
-        text: '在 PDF 上做註記，或用手寫筆自由書寫。',
+        text: '在PDF畫重點上做註記，或用手寫筆自由書寫。',
         scores: { [ToolKey.GoodNotes]: 3 },
       },
       {
@@ -230,7 +230,7 @@ export const QUESTIONS: Question[] = [
         scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2, [ToolKey.Notion]: 1 },
       },
       {
-        text: '在無限畫布上，把各種資料像卡片般自由排列組合。',
+        text: '在空白的畫布上，把各種資料像卡片般自由排列組合。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Heptabase]: 3 },
       },
       {
@@ -264,7 +264,7 @@ export const QUESTIONS: Question[] = [
     text: '你需要協作功能嗎？',
     options: [
       {
-        text: '是，需要跟團隊成員共同編輯文件。',
+        text: '需要！我常跟團隊成員共同編輯文件。',
         scores: { [NoteTakerType.Architect]: 1, [ToolKey.Notion]: 3 },
       },
       {
@@ -272,7 +272,7 @@ export const QUESTIONS: Question[] = [
         scores: { [ToolKey.Evernote]: 1, [ToolKey.AppleNotes]: 1 },
       },
       {
-        text: '幾乎不用，這完全是我的個人空間。',
+        text: '幾乎不用，筆記是我的私密空間。',
         scores: { [NoteTakerType.Gardener]: 1, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 1, [ToolKey.GoodNotes]: 1 },
       },
     ],
@@ -289,11 +289,11 @@ export const QUESTIONS: Question[] = [
         scores: { [ToolKey.Notion]: 3, [NoteTakerType.Architect]: 1 },
       },
       {
-        text: '【速度與便利】跨裝置同步，快速啟動，讓我無需思考就能記錄。',
+        text: '【速度與便利】跨裝置同步，快速啟動，少少步驟就能記錄。',
         scores: { [ToolKey.AppleNotes]: 3, [ToolKey.Evernote]: 1 },
       },
       {
-        text: '【專業功能】我願意為在特定領域（手寫、視覺化）做到極致的工具付費。',
+        text: '【專業功能】我願意為特殊功能（手寫、視覺化...）付費。',
         scores: { [ToolKey.GoodNotes]: 2, [ToolKey.Heptabase]: 2 },
       },
     ],

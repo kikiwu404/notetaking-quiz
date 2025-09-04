@@ -2,17 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%234F46E5' d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23a855f7' d='M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>找到最適合你的筆記工具</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['DM Sans', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
     <style>
+      body {
+        background-color: #F1F5F9;
+      }
+
       @keyframes scroll {
         from { transform: translateX(0); }
         to { transform: translateX(-50%); }
       }
       .animate-scroll {
         animation: scroll 20s linear infinite;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.45);
+        border-radius: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .gradient-button {
+        background-image: linear-gradient(to right, #6366f1, #a855f7, #8b5cf6);
+        transition: 0.5s;
+        background-size: 200% auto;
+      }
+      .gradient-button:hover {
+        background-position: right center;
+      }
+      .answer-option {
+        position: relative;
+      }
+      .answer-option::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 0.75rem; /* Corresponds to Tailwind's rounded-xl */
+        padding: 1px; /* Border thickness */
+        background: linear-gradient(to right, #6366f1, #a855f7);
+        -webkit-mask:
+           linear-gradient(#fff 0 0) content-box,
+           linear-gradient(#fff 0 0);
+        -webkit-mask-composite: exclude;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+        pointer-events: none;
+      }
+      .answer-option:hover::before {
+        opacity: 1;
+      }
+      .answer-option:active::before {
+        box-shadow: 0 0 12px 0px #8b5cf6;
       }
     </style>
   <script type="importmap">
@@ -25,7 +90,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50 dark:bg-slate-900">
+  <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

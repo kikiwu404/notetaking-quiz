@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Question, Option } from '../types';
 import { BackIcon } from './icons/AppIcon';
+import { useI18n } from '../i18n';
 
 interface QuizCardProps {
   question: Question;
@@ -12,35 +12,36 @@ interface QuizCardProps {
 }
 
 const QuizCard: React.FC<QuizCardProps> = ({ question, onAnswer, onBack, questionNumber, totalQuestions }) => {
+  const { t } = useI18n();
   const progressPercentage = (questionNumber / totalQuestions) * 100;
 
   return (
-    <div className="w-full max-w-2xl bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl transition-all duration-300">
+    <div className="w-full max-w-2xl glass-card p-6 sm:p-8 rounded-2xl shadow-2xl transition-all duration-300">
       <div>
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
-            問題 {questionNumber} / {totalQuestions}
+          <span className="text-sm font-semibold text-indigo-500">
+            {t('question')} {questionNumber} / {totalQuestions}
           </span>
           {questionNumber > 1 && (
             <button
               onClick={onBack}
-              className="flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 transition-colors"
-              aria-label="上一個問題"
+              className="flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors"
+              aria-label="Previous question"
             >
               <BackIcon className="h-4 w-4" />
-              <span>返回</span>
+              <span>{t('back')}</span>
             </button>
           )}
         </div>
-        <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+        <div className="w-full bg-white/20 rounded-full h-2.5">
           <div
-            className="bg-indigo-600 dark:bg-indigo-500 h-2.5 rounded-full"
+            className="bg-gradient-to-r from-indigo-500 to-purple-600 h-2.5 rounded-full"
             style={{ width: `${progressPercentage}%`, transition: 'width 0.5s ease-in-out' }}
           ></div>
         </div>
       </div>
 
-      <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mt-8">
+      <h2 className="text-xl sm:text-3xl font-bold text-slate-800 mt-8">
         {question.text}
       </h2>
 
@@ -49,9 +50,9 @@ const QuizCard: React.FC<QuizCardProps> = ({ question, onAnswer, onBack, questio
           <button
             key={index}
             onClick={() => onAnswer(option.scores)}
-            className="w-full text-left p-4 sm:p-5 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-transparent hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-slate-700 transition-all duration-200 group"
+            className="answer-option w-full text-left p-4 bg-slate-100/90 rounded-xl transition-all duration-200 group hover:bg-indigo-100/70 hover:scale-[1.02] hover:shadow-lg active:scale-95"
           >
-            <span className="text-lg text-slate-700 dark:text-slate-200 group-hover:text-indigo-800 dark:group-hover:text-white font-medium">
+            <span className="text-base sm:text-lg text-slate-700 font-medium">
               {option.text}
             </span>
           </button>
