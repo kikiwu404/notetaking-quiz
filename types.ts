@@ -38,9 +38,10 @@ export interface NoteTaker {
 
 export interface Tool {
   name: string;
-  description: string;
   features: string[];
   logo: string;
   url: string;
   price: string;
+  firstStep: string;
+  recommendationReason: Partial<Record<NoteTakerType, string>>;
 }

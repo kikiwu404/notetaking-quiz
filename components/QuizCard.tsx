@@ -1,15 +1,17 @@
 
 import React from 'react';
 import { Question, Option } from '../types';
+import { BackIcon } from './icons/AppIcon';
 
 interface QuizCardProps {
   question: Question;
   onAnswer: (scores: Partial<Record<string, number>>) => void;
+  onBack: () => void;
   questionNumber: number;
   totalQuestions: number;
 }
 
-const QuizCard: React.FC<QuizCardProps> = ({ question, onAnswer, questionNumber, totalQuestions }) => {
+const QuizCard: React.FC<QuizCardProps> = ({ question, onAnswer, onBack, questionNumber, totalQuestions }) => {
   const progressPercentage = (questionNumber / totalQuestions) * 100;
 
   return (
@@ -19,6 +21,16 @@ const QuizCard: React.FC<QuizCardProps> = ({ question, onAnswer, questionNumber,
           <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
             問題 {questionNumber} / {totalQuestions}
           </span>
+          {questionNumber > 1 && (
+            <button
+              onClick={onBack}
+              className="flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 transition-colors"
+              aria-label="上一個問題"
+            >
+              <BackIcon className="h-4 w-4" />
+              <span>返回</span>
+            </button>
+          )}
         </div>
         <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
           <div

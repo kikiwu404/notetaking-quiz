@@ -4,50 +4,75 @@ export const TOOLS: Record<ToolKey, Tool> = {
   [ToolKey.Notion]: {
     name: 'Notion',
     url: 'https://www.notion.so/',
-    description: '你是個終極的組織者，喜歡將所有東西都放在一個地方。Notion 的靈活性、數據庫和模板功能，能讓你打造一個完全客製化的「人生操作系統」。',
     features: ['All-in-one 工作區', '強大的數據庫功能', '高度可客製化模板', '適合團隊協作', '網頁內容收藏'],
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/1024px-Notion-logo.svg.png',
     price: '提供免費方案，付費方案 $8/月 起',
+    firstStep: '試著用 Notion 的「待辦清單」模板，規劃你明天要做的事。先不用想得太複雜！',
+    recommendationReason: {
+      [NoteTakerType.Architect]: '你注重結構與系統，Notion 的靈活性、數據庫和模板功能，能讓你打造一個完全客製化、專屬於你的人生儀表板與操作系統。',
+      [NoteTakerType.Gardener]: '你享受慢慢組織想法的過程，Notion 靈活的頁面就像一片沃土，能讓你自由種植靈感，並逐漸將它們建構成一個更有結構的知識花園。',
+      [NoteTakerType.Librarian]: '你擅長收集與歸檔，Notion 強大的資料庫與 Web Clipper 功能，正是你需要的利器。它能幫你將所有數位資訊分門別類，建立一個終極的個人檔案櫃。',
+    }
   },
   [ToolKey.Obsidian]: {
     name: 'Obsidian',
     url: 'https://obsidian.md/',
-    description: '你是一位思想家，重視知識之間的連結和數據的完全擁有權。Obsidian 的本地優先、Markdown 格式和雙向連結功能，是你建立「第二大腦」的完美工具。',
     features: ['本地儲存，保障隱私', '純文字 Markdown 檔案', '知識圖譜視覺化', '豐富的插件生態系', '強大的雙向連結'],
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023_Obsidian_logo.svg/1200px-2023_Obsidian_logo.svg.png',
     price: '個人使用免費',
+    firstStep: '建立一個「每日筆記」，寫下一件今天學到的新事物。先別管插件和連結。',
+    recommendationReason: {
+        [NoteTakerType.Gardener]: '你享受探索知識連結的樂趣，Obsidian 的雙向連結和知識圖譜，就是為你而生。它能幫助你的想法自由生長、互相碰撞，最終形成一個獨一無二的「第二大腦」。',
+        [NoteTakerType.Architect]: '你尋求一個能長久使用的系統，Obsidian 的本地儲存和通用格式提供了極致的掌控感。搭配豐富的插件，你可以在這個基礎上建立一個高度結構化、完全屬於你的知識堡壘。',
+        [NoteTakerType.Librarian]: '你最重視資料的自主權，Obsidian 的本地儲存和純文字格式，提供了最極致的資訊安全感。你的筆記 100% 屬於你，永遠不必擔心被平台綁架。',
+    }
   },
   [ToolKey.Heptabase]: {
     name: 'Heptabase',
-    url: 'https://heptabase.com/',
-    description: '你是個視覺學習者和研究者，喜歡在一個無限畫布上組織你的想法。Heptabase 的卡片、白板和心智圖功能，能幫助你釐清複雜的主題並看見全局。',
+    url: 'https://join.heptabase.com?invite-acc-id=c0ea813e-a95a-4b48-8f74-de2e4649b151',
     features: ['視覺化的學習與研究', '無限延伸的白板', '卡片式筆記系統', '擅長連結與梳理思路', '專為深度研究打造'],
     logo: 'https://wiki.heptabase.com/img/logo.svg',
     price: '訂閱制，$11.99/月 起',
+    firstStep: '建立一個白板，為你最近在思考的主題，放上三張卡片筆記，並簡單連結起來。',
+    recommendationReason: {
+        [NoteTakerType.Gardener]: '你的思緒如同星圖，Heptabase 的無限白板就是你的宇宙。它讓你能在視覺上自由地連結、排列每一個想法卡片，非常適合用來進行深度研究和釐清複雜主題。',
+        [NoteTakerType.Architect]: '你喜歡從宏觀視角建構知識，Heptabase 的視覺化白板能幫助你先看見全局，再深入細節。它讓你能夠以鳥瞰的方式，規劃和建立你的知識體系。',
+    }
   },
   [ToolKey.AppleNotes]: {
-    name: 'Apple Notes (蘋果備忘錄)',
+    name: 'Apple Notes',
     url: 'https://apps.apple.com/us/app/notes/id1110145109',
-    description: '你是蘋果生態系的使用者，追求極致的簡單和方便。蘋果備忘錄無縫整合你的所有 Apple 設備，是你快速捕捉靈感、製作清單的最佳選擇。',
     features: ['蘋果生態系無縫整合', '啟動快速，操作簡單', '基礎格式與手寫功能', '完全免費', '適合快速紀錄'],
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/1200px-Apple_Notes_icon.svg.png',
     price: '免費',
+    firstStep: '立刻打開備忘錄，寫下你下次去超市要買的東西，試試看核對清單功能。',
+    recommendationReason: {
+        [NoteTakerType.Librarian]: '對你來說，最快的收藏工具就是最好的工具。Apple Notes 深度整合在你的蘋果裝置中，能以最快的速度啟動，確保你不會錯過任何一閃而過的零碎靈感或重要資訊。',
+    }
   },
   [ToolKey.GoodNotes]: {
     name: 'GoodNotes',
     url: 'https://www.goodnotes.com/',
-    description: '你偏愛手寫的溫度，並經常需要在平板上閱讀和註釋文件。GoodNotes 提供業界頂尖的手寫體驗，讓你的 iPad 變成一本無限可能的數位筆記本。',
     features: ['頂級的手寫體驗', '強大的 PDF 標註功能', '數位筆記本管理', '支援手寫辨識搜尋', '適合學生和學術人士'],
     logo: 'https://store-images.s-microsoft.com/image/apps.53458.13545614329042837.f1eab701-e76a-444e-842d-e8e01f558746.12ac4149-7319-48bd-a2b7-d016931a0f76',
     price: '提供免費試用，可買斷或訂閱',
+    firstStep: '匯入一份 PDF 文件，試著用螢光筆畫重點，並在旁邊寫下一點心得。',
+    recommendationReason: {
+        [NoteTakerType.Gardener]: '你偏愛手寫的直覺與溫度，GoodNotes 提供了頂級的數位手寫體驗。它讓你像在紙上一樣，自由地塗鴉、畫線、連結想法，讓思緒自然流淌。',
+        [NoteTakerType.Librarian]: '你收藏的資訊大多是 PDF 文件，GoodNotes 將是你的最佳閱讀與註記夥伴。它強大的 PDF 標註功能，讓你能輕鬆地在文件上畫重點和寫下心得。',
+    }
   },
   [ToolKey.Evernote]: {
-    name: 'Evernote (印象筆記)',
+    name: 'Evernote',
     url: 'https://evernote.com/',
-    description: '你是一位數位歸檔大師，需要一個強大的工具來收集和整理來自四面八方的資訊。Evernote 經典的網頁剪藏和跨平台同步功能，讓你輕鬆捕捉一切。',
     features: ['強大的網頁剪藏功能', '跨平台同步', '強大的搜尋功能', '文件掃描與 OCR', '數位資料的中央儲存庫'],
     logo: 'https://cdn-icons-png.flaticon.com/512/2111/2111389.png',
     price: '提供免費方案，付費方案 $14.99/月 起',
+    firstStep: '安裝瀏覽器剪藏工具，然後試著把一篇你感興趣的文章完整存到 Evernote 裡。',
+    recommendationReason: {
+        [NoteTakerType.Librarian]: '你是資訊的收藏家，而 Evernote 經典的網頁剪藏功能至今仍是業界標竿。它能幫助你輕鬆捕捉來自四面八方的網路資訊，建立一個強大、易於搜尋的數位檔案櫃。',
+        [NoteTakerType.Architect]: '你喜歡用穩定的方式來組織資訊，Evernote 的筆記本和標籤系統，提供了一個傳統而強大的架構。它能讓你以井然有序的方式，建立起屬於你的資訊資料庫。',
+    }
   },
 };
 
@@ -68,184 +93,208 @@ export const NOTE_TAKER_ARCHETYPES: Record<NoteTakerType, NoteTaker> = {
 
 export const QUESTIONS: Question[] = [
   {
-    text: '你通常都拿筆記軟體來做什麼呀？',
+    text: '你想用筆記來解決什麼核心問題？',
     options: [
       {
-        text: '一步步規劃專案，從無到有打造出成果。',
+        text: '規劃並追蹤我生活中的各種專案和目標。',
         scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
       },
       {
-        text: '隨手記下靈感，把它們串連起來，看看會迸出什麼新火花。',
+        text: '連結我學到的各種知識，建立一個屬於自己的知識庫。',
         scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 1 },
       },
       {
-        text: '打造我的數位圖書館，把文章、網頁、圖片全都丟進去收藏。',
-        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2, [ToolKey.Notion]: 1 },
+        text: '快速捕捉收據、待辦事項、網址等各種零碎資訊。',
+        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2, [ToolKey.AppleNotes]: 1 },
       },
       {
-        text: '快！現在就要記下來！不管是待辦事項還是突然的想法。',
+        text: '只是找個簡單的地方，隨手記下臨時的想法或清單。',
+        scores: { [NoteTakerType.Librarian]: 1, [ToolKey.AppleNotes]: 2 },
+      },
+    ],
+  },
+  {
+    text: '規劃一趟複雜的旅行時，你會如何組織資訊？',
+    options: [
+      {
+        text: '建立一個詳細的總表，包含預算、行程、打包清單等，力求一目了然。',
+        scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 3 },
+      },
+      {
+        text: '在白板上貼滿便利貼，代表景點和餐廳，再用線條連結出路線。',
+        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Heptabase]: 3, [ToolKey.Obsidian]: 1 },
+      },
+      {
+        text: '把所有訂票證明、部落格文章、地圖截圖，全部丟進一個資料夾。',
+        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2 },
+      },
+      {
+        text: '在手機備忘錄裡列出必去景點和必買清單就夠了。',
+        scores: { [ToolKey.AppleNotes]: 2 },
+      },
+    ],
+  },
+    {
+    text: '學習一個複雜的新領域時，你如何做筆記？',
+    options: [
+      {
+        text: '先建立清晰的大綱和結構，再逐步填入細節。',
+        scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
+      },
+      {
+        text: '把所有概念攤開，畫心智圖來理解它們的關係。',
+        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Heptabase]: 3 },
+      },
+      {
+        text: '邊看邊記，並在筆記之間建立很多連結，形成知識網絡。',
+        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 3 },
+      },
+      {
+        text: '把課程講義、參考文章、心得全部搜集在同一個地方。',
+        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2, [ToolKey.GoodNotes]: 1 },
+      },
+    ],
+  },
+  {
+    text: '你理想中的一則筆記長什麼樣子？',
+    options: [
+      {
+        text: '一份結構完整的文件，有標題、列表和表格，像個小型維基。',
+        scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 3 },
+      },
+      {
+        text: '一張只清楚說明一件事的卡片，方便與其他卡片連結。',
+        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 2 },
+      },
+      {
+        text: '一篇包含網頁、圖片和註解的豐富剪報。',
+        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 3 },
+      },
+      {
+        text: '一張數位便利貼，可能還帶有手寫或塗鴉。',
         scores: { [ToolKey.AppleNotes]: 2, [ToolKey.GoodNotes]: 1 },
       },
     ],
   },
   {
-    text: '你理想中的筆記軟體，看起來應該像什麼樣子？',
+    text: '最讓你頭痛的資訊整理問題是？',
     options: [
       {
-        text: '像個萬能的儀表板，所有資料、進度、文件都一目了然。',
-        scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 3 },
+        text: '資訊散落在各處，缺乏統一的系統來整合。',
+        scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
       },
       {
-        text: '一張無限大的白板或心智圖，讓我可以把想法視覺化地連在一起。',
-        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 3 },
+        text: '想法很多，但它們都是孤立的，無法產生連結。',
+        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 2 },
       },
       {
-        text: '像個超強的數位檔案櫃，不管存了什麼，一搜就找到。',
+        text: '存過某個東西，但事後卻怎麼也找不到。',
         scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 3 },
       },
       {
-        text: '就像一本乾淨的筆記本，打開就能寫，沒有多餘的干擾。',
+        text: '靈感一閃而過，但打開 App 的步驟太繁瑣，來不及記下。',
+        scores: { [ToolKey.AppleNotes]: 3 },
+      },
+    ],
+  },
+  {
+    text: '過去嘗試新工具時，最常因為什麼而放棄？',
+    options: [
+      {
+        text: '設定太複雜，還沒開始用就累了。',
+        scores: { [ToolKey.Obsidian]: -2, [ToolKey.AppleNotes]: 2, [ToolKey.Notion]: 1 },
+      },
+      {
+        text: '價格太高，或訂閱制讓人卻步。',
+        scores: { [ToolKey.Heptabase]: -2, [ToolKey.Evernote]: -1, [ToolKey.Obsidian]: 3, [ToolKey.AppleNotes]: 2 },
+      },
+      {
+        text: '在手機上反應太慢，無法隨時捕捉靈感。',
+        scores: { [ToolKey.AppleNotes]: 3, [ToolKey.Notion]: -1 },
+      },
+      {
+        text: '功能太單一，無法整合我生活的各個面向。',
+        scores: { [ToolKey.Notion]: 3, [NoteTakerType.Architect]: 2, [ToolKey.AppleNotes]: -2 },
+      },
+    ],
+  },
+  {
+    text: '除了打字，你最需要什麼功能？',
+    options: [
+      {
+        text: '在 PDF 上做註記，或用手寫筆自由書寫。',
+        scores: { [ToolKey.GoodNotes]: 3 },
+      },
+      {
+        text: '輕鬆地把看到的網頁、文章、圖片完整存下來。',
+        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2, [ToolKey.Notion]: 1 },
+      },
+      {
+        text: '在無限畫布上，把各種資料像卡片般自由排列組合。',
+        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Heptabase]: 3 },
+      },
+      {
+        text: '主要是文字，但希望能方便地加入待辦清單、分隔線等簡單格式。',
+        scores: { [ToolKey.Notion]: 2, [ToolKey.Obsidian]: 1, [ToolKey.AppleNotes]: 1 },
+      },
+    ],
+  },
+    {
+    text: '五年後，你希望你的筆記庫變成什麼樣子？',
+    options: [
+      {
+        text: '一個個人化的「人生操作系統」，管理我的專案、目標和知識。',
+        scores: { [NoteTakerType.Architect]: 3, [ToolKey.Notion]: 3 },
+      },
+      {
+        text: '一個能持續成長的「第二大腦」，裡面的想法會互相碰撞，產生新的洞見。',
+        scores: { [NoteTakerType.Gardener]: 3, [ToolKey.Obsidian]: 3, [ToolKey.Heptabase]: 2 },
+      },
+      {
+        text: '一個井然有序的數位檔案櫃，存放我所有重要的參考資料。',
+        scores: { [NoteTakerType.Librarian]: 3, [ToolKey.Evernote]: 3 },
+      },
+      {
+        text: '一個充滿回憶和靈感的數位日記本。',
         scores: { [ToolKey.AppleNotes]: 2, [ToolKey.GoodNotes]: 2 },
       },
     ],
   },
   {
-    text: '看到一篇很棒的文章或學到新知時，你會怎麼做？',
+    text: '你需要協作功能嗎？',
     options: [
       {
-        text: '把它歸檔到我設定好的資料夾和分類裡，一切井井有條。',
-        scores: { [NoteTakerType.Architect]: 2, [ToolKey.Notion]: 2 },
-      },
-      {
-        text: '想想這跟以前學過的東西有什麼關聯，然後把它們連起來。',
-        scores: { [NoteTakerType.Gardener]: 2, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 1 },
-      },
-      {
-        text: '先丟進去再說！加上幾個標籤，以後方便找。',
-        scores: { [NoteTakerType.Librarian]: 2, [ToolKey.Evernote]: 2 },
-      },
-    ],
-  },
-  {
-    text: '對於筆記資料，你的安全感來自...',
-    options: [
-      {
-        text: '檔案必須是我的！它們要能備份在我的電腦裡。',
-        scores: { [ToolKey.Obsidian]: 3 },
-      },
-      {
-        text: '方便最重要！要能夠雲端同步服務，隨時都能存取。',
-        scores: { [NoteTakerType.Architect]: 1, [NoteTakerType.Librarian]: 1, [ToolKey.Notion]: 1, [ToolKey.Evernote]: 1, [ToolKey.AppleNotes]: 1, [ToolKey.GoodNotes]: 1, [ToolKey.Heptabase]: 1 },
-      },
-    ],
-  },
-  {
-    text: '你最常在哪種裝置上記筆記？',
-    options: [
-      {
-        text: 'iPad 不離身，最愛用手寫筆寫字的感覺。',
-        scores: { [ToolKey.GoodNotes]: 3 },
-      },
-      {
-        text: '我是果粉！在iPhone, iPad, Mac 之間無縫切換。',
-        scores: { [ToolKey.AppleNotes]: 3 },
-      },
-      {
-        text: '多平台游牧者，公司用 Windows，回家用 Mac，手機也要能看。',
-        scores: { [ToolKey.Notion]: 1, [ToolKey.Evernote]: 1, [ToolKey.Obsidian]: 1 },
-      },
-      {
-        text: '大部分時間都使用電腦做筆記',
-        scores: { [ToolKey.Obsidian]: 1, [ToolKey.Heptabase]: 1, [ToolKey.Notion]: 1 },
-      },
-    ],
-  },
-  {
-    text: '對於軟體功能，你的態度比較偏向？',
-    options: [
-      {
-        text: '給我最大的自由度！我喜歡用各種插件把工具改造成我想要的樣子。',
-        scores: { [NoteTakerType.Gardener]: 1, [ToolKey.Obsidian]: 3 },
-      },
-      {
-        text: '軟體本身功能要夠強大，有內建資料庫或模板就很棒。',
+        text: '是，需要跟團隊成員共同編輯文件。',
         scores: { [NoteTakerType.Architect]: 1, [ToolKey.Notion]: 3 },
       },
       {
-        text: '簡單、好用、能快速上手最重要。',
-        scores: { [ToolKey.AppleNotes]: 2, [ToolKey.GoodNotes]: 1, [ToolKey.Evernote]: 1 },
+        text: '偶爾會，只需把單篇筆記分享給朋友看。',
+        scores: { [ToolKey.Evernote]: 1, [ToolKey.AppleNotes]: 1 },
+      },
+      {
+        text: '幾乎不用，這完全是我的個人空間。',
+        scores: { [NoteTakerType.Gardener]: 1, [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 1, [ToolKey.GoodNotes]: 1 },
       },
     ],
   },
   {
-    text: '你的筆記是單人獨享，還是需要跟團隊共享？',
+    text: '選擇長期工具，你最看重的是？',
     options: [
       {
-        text: '純粹個人使用，打造我的私密知識庫。',
-        scores: { [ToolKey.Obsidian]: 2, [ToolKey.Heptabase]: 2, [NoteTakerType.Gardener]: 1 },
+        text: '【資料主權】資料必須 100% 屬於我，存在本機，不被平台綁架。',
+        scores: { [ToolKey.Obsidian]: 3 },
       },
       {
-        text: '偶爾需要分享單篇筆記給別人，或簡單協作。',
-        scores: { [ToolKey.AppleNotes]: 1, [ToolKey.GoodNotes]: 1, [ToolKey.Evernote]: 1 },
+        text: '【整合與彈性】我需要一個能管理生活各個層面的「強大系統」。',
+        scores: { [ToolKey.Notion]: 3, [NoteTakerType.Architect]: 1 },
       },
       {
-        text: '需要跟團隊成員一起共同編輯、管理專案。',
-        scores: { [ToolKey.Notion]: 3, [NoteTakerType.Architect]: 2 },
-      },
-    ],
-  },
-  {
-    text: '除了文字，你最常需要記錄哪種內容？',
-    options: [
-      {
-        text: '手寫筆記、塗鴉，或是在 PDF 文件上畫重點。',
-        scores: { [ToolKey.GoodNotes]: 3 },
+        text: '【速度與便利】跨裝置同步，快速啟動，讓我無需思考就能記錄。',
+        scores: { [ToolKey.AppleNotes]: 3, [ToolKey.Evernote]: 1 },
       },
       {
-        text: '大量的網頁截圖、圖片和掃描文件。',
-        scores: { [ToolKey.Evernote]: 2, [ToolKey.Notion]: 2, [NoteTakerType.Librarian]: 1 },
-      },
-      {
-        text: '把想法、PDF、網頁等各種資料，視覺化地呈現在白板上。',
-        scores: { [ToolKey.Heptabase]: 3, [NoteTakerType.Gardener]: 1 },
-      },
-      {
-        text: '主要是純文字 (Markdown)，頂多偶爾插入圖片。',
-        scores: { [ToolKey.Obsidian]: 2, [ToolKey.AppleNotes]: 1 },
-      },
-    ],
-  },
-  {
-    text: '對於學習一款新軟體，你的心態是？',
-    options: [
-      {
-        text: '我沒時間研究，希望打開就能立刻上手，功能愈簡單愈好。',
-        scores: { [ToolKey.AppleNotes]: 2, [ToolKey.GoodNotes]: 1 },
-      },
-      {
-        text: '願意花一點時間設定，但希望軟體本身的核心功能是直覺的。',
-        scores: { [ToolKey.Notion]: 2, [ToolKey.Evernote]: 1, [NoteTakerType.Architect]: 1 },
-      },
-      {
-        text: '我享受「折騰」的過程，喜歡高度客製化，把它打造成我的專屬神器。',
-        scores: { [ToolKey.Obsidian]: 3, [NoteTakerType.Gardener]: 1 },
-      },
-    ],
-  },
-  {
-    text: '關於軟體費用，你的預算是？',
-    options: [
-      {
-        text: '最好是完全免費的，或者有非常大方的免費方案。',
-        scores: { [ToolKey.AppleNotes]: 3, [ToolKey.Obsidian]: 2 },
-      },
-      {
-        text: '我願意為好的工具付費訂閱，以獲得持續的更新和服務。',
-        scores: { [ToolKey.Notion]: 1, [ToolKey.Evernote]: 1, [ToolKey.Heptabase]: 2 },
-      },
-      {
-        text: '我偏好一次性買斷，不喜歡每個月或每年都要付費。',
-        scores: { [ToolKey.GoodNotes]: 2 },
+        text: '【專業功能】我願意為在特定領域（手寫、視覺化）做到極致的工具付費。',
+        scores: { [ToolKey.GoodNotes]: 2, [ToolKey.Heptabase]: 2 },
       },
     ],
   },

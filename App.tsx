@@ -42,6 +42,7 @@ const App: React.FC = () => {
     evernote: 0,
   });
   const [isFinished, setIsFinished] = useState(false);
+  const [answerHistory, setAnswerHistory] = useState<Partial<Scores>[]>([]);
 
   const handleStart = () => {
     setQuizStarted(true);
@@ -56,6 +57,7 @@ const App: React.FC = () => {
       }
     }
     setScores(newScores);
+    setAnswerHistory(prev => [...prev, optionScores]);
 
     if (currentQuestionIndex < QUESTIONS.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -63,6 +65,26 @@ const App: React.FC = () => {
       setIsFinished(true);
     }
   }, [currentQuestionIndex, scores]);
+
+  const handleBack = () => {
+    if (currentQuestionIndex === 0) return;
+
+    const lastScores = answerHistory[answerHistory.length - 1];
+    
+    const newScores = { ...scores };
+    if (lastScores) {
+        for (const key in lastScores) {
+            if (Object.prototype.hasOwnProperty.call(lastScores, key)) {
+                const scoreKey = key as ScoreKey;
+                newScores[scoreKey] -= lastScores[scoreKey] || 0;
+            }
+        }
+    }
+    
+    setScores(newScores);
+    setAnswerHistory(prev => prev.slice(0, -1));
+    setCurrentQuestionIndex(prev => prev - 1);
+  };
 
   const handleRestart = () => {
     setQuizStarted(false);
@@ -79,6 +101,7 @@ const App: React.FC = () => {
       goodNotes: 0,
       evernote: 0,
     });
+    setAnswerHistory([]);
   };
 
   const result = useMemo(() => {
@@ -107,6 +130,7 @@ const App: React.FC = () => {
 
     return {
       archetype: NOTE_TAKER_ARCHETYPES[topArchetype],
+      archetypeKey: topArchetype,
       tools: [TOOLS[topTwoTools[0]], TOOLS[topTwoTools[1]]] as [any, any],
     };
   }, [isFinished, scores]);
@@ -114,7 +138,7 @@ const App: React.FC = () => {
 
   const renderContent = () => {
     if (isFinished && result) {
-      return <ResultCard archetype={result.archetype} tools={result.tools} onRestart={handleRestart} />;
+      return <ResultCard archetype={result.archetype} archetypeKey={result.archetypeKey} tools={result.tools} onRestart={handleRestart} />;
     }
 
     if (quizStarted) {
@@ -122,6 +146,7 @@ const App: React.FC = () => {
         <QuizCard
           question={QUESTIONS[currentQuestionIndex]}
           onAnswer={handleAnswer}
+          onBack={handleBack}
           questionNumber={currentQuestionIndex + 1}
           totalQuestions={QUESTIONS.length}
         />
@@ -137,8 +162,12 @@ const App: React.FC = () => {
           找到最適合你的筆記工具
         </h1>
         <p className="text-slate-600 dark:text-slate-400 mt-4 text-lg">
-          你是哪種筆記人格？透過幾個問題，找到適合你的筆記工具！
+          筆記工具好多好難選？
         </p>
+         <p className="text-slate-600 dark:text-slate-400 mt-2 text-lg">
+          了解自己的筆記風格，找到最適合的工具！
+        </p>
+    
         <LogoMarquee />
         <button
           onClick={handleStart}
@@ -151,9 +180,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className="min-h-screen w-full flex items-center justify-center p-4 font-sans antialiased bg-slate-100 dark:bg-slate-900">
-      {renderContent()}
-    </main>
+    <div className="min-h-screen w-full flex flex-col font-sans antialiased bg-slate-100 dark:bg-slate-900">
+      <main className="w-full flex-grow flex items-center justify-center p-4">
+        {renderContent()}
+      </main>
+      <footer className="w-full text-center p-4 pb-6 text-slate-500 dark:text-slate-400 text-sm flex-shrink-0">
+        <p className="mb-2">喜歡這個小測驗？<a href="https://donate.stripe.com/6oUcN5287auP8Hva1dg360f" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">請我喝杯咖啡 ☕️</a></p>
+        <p>&copy; {new Date().getFullYear()} <a href="https://instagram.com/kikiwu404" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">Kiki Wu</a>. All rights reserved.</p>
+      </footer>
+    </div>
   );
 };
 
